@@ -10,7 +10,7 @@ proc popColor*(hexColor: string): JsonNode =
   return getJson(parseUri(url))
 
 proc popScreenshot*(site: Uri): string =
-  ## Returns a screenshot of the provided wbsite as a link
+  ## Returns a screenshot of the provided website as a link
   fmt"https://api.popcat.xyz/screenshot?url={site}"
 
 proc popLyrics*(song: string): JsonNode =

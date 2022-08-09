@@ -26,6 +26,7 @@ permissions:
   security-events: write
   statuses: write
   pages: write
+  id-token: write
 
 jobs:
   generate:

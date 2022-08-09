@@ -30,7 +30,7 @@ jobs:
     - uses: alaviss/setup-nim@0.1.1
       with:
         version: devel
-    - run: nimble install -d -y && nimble lint && nimble gendoc
+    - run: nimble install -d -y && nimble gendoc
   deploy:
     environment:
       name: github-pages

@@ -92,7 +92,7 @@ proc popGun*(image: Uri): string =
   fmt"https://api.popcat.xyz/gun?image={image}"
 
 proc catify*(text: string): string =
-  ## Conbvert your text into lal-cat speak
+  ## Connvert your text into lal-cat speak
   let url = fmt"https://api.popcat.xyz/lulcat?text={text}"
   return getjson(parseUri(url))["text"].getStr()
 

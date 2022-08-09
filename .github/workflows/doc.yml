@@ -21,6 +21,20 @@ concurrency:
   cancel-in-progress: true
 
 jobs:
+  generate:
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v2
+    - uses: alaviss/setup-nim@0.1.1
+      with:
+        version: devel
+    - run: nimble lint && nimble gendoc
+    - uses: EndBug/add-and-commit@v9
+      with:
+        author_name: nimpretty
+        author_email: mail@example.com
+        message: 'chore: generate documentation; lint code'
+
   # Single deploy job since we're just deploying
   deploy:
     environment:

@@ -1,5 +1,5 @@
 # Simple workflow for deploying static content to GitHub Pages
-name: Deploy static content to Pages
+name: Lint code, Generate and serve documentation
 
 on:
   # Runs on pushes targeting the default branch
@@ -13,6 +13,18 @@ on:
 concurrency:
   group: "pages"
   cancel-in-progress: true
+  
+permissions:
+  actions: write
+  checks: write
+  contents: write
+  deployments: write
+  issues: write
+  packages: write
+  pull-requests: write
+  repository-projects: write
+  security-events: write
+  statuses: write
 
 jobs:
   generate:
@@ -24,7 +36,7 @@ jobs:
     - uses: alaviss/setup-nim@0.1.1
       with:
         version: devel
-    - run: nimble install -d -y && nimble gendoc
+    - run: nimble install -d -y && nimble lint && nimble gendoc
     - uses: actions-x/commit@v6
     - name: Checkout
       uses: actions/checkout@v3

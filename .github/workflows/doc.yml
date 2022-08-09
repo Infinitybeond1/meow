@@ -25,6 +25,7 @@ permissions:
   repository-projects: write
   security-events: write
   statuses: write
+  pages: write
 
 jobs:
   generate:

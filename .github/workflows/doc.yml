@@ -31,8 +31,6 @@ jobs:
       with:
         version: devel
     - run: nimble install -d -y && nimble lint && nimble gendoc
-    - uses: actions-x/commit@v6
-  # Single deploy job since we're just deploying
   deploy:
     environment:
       name: github-pages

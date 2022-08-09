@@ -9,17 +9,18 @@ import unittest, json, harpoon, uri
 
 import meow
 test "Color":
-  check popColor("FFFFFF") == getJson(parseUri"https://api.popcat.xyz/color/FFFFFF") 
+  check popColor("FFFFFF") == getJson(parseUri"https://api.popcat.xyz/color/FFFFFF")
 test "Lyrics":
-  check popLyrics("never gonna give you up") == getJson(parseUri"https://api.popcat.xyz/lyrics?song=never gonna give you up") 
+  check popLyrics("never gonna give you up") == getJson(parseUri"https://api.popcat.xyz/lyrics?song=never gonna give you up")
 test "IMDB":
-  check popIMDB("iron man") == getJson(parseUri"https://api.popcat.xyz/imdb?q=iron+man") 
+  check popIMDB("iron man") == getJson(parseUri"https://api.popcat.xyz/imdb?q=iron+man")
 test "Steam":
-  check popSteam("minecraft") == getJson(parseUri"https://api.popcat.xyz/steam?q=minecraft") 
+  check popSteam("minecraft") == getJson(parseUri"https://api.popcat.xyz/steam?q=minecraft")
 test "GitHub":
-  check popGithub("Infinitybeond1") == getJson(parseUri"https://api.popcat.xyz/github/Infinitybeond1") 
+  check popGithub("Infinitybeond1") == getJson(parseUri"https://api.popcat.xyz/github/Infinitybeond1")
 test "Weather":
   check popWeather("Toronto") == getJson(parseUri"https://api.popcat.xyz/weather?q=toronto")
 test "Catify":
-  check catify("Hello") == getjson(parseUri("https://api.popcat.xyz/lulcat?text=hello"))["text"].getStr()
+  check catify("Hello") == getjson(parseUri(
+      "https://api.popcat.xyz/lulcat?text=hello"))["text"].getStr()
 

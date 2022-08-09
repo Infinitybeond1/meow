@@ -82,7 +82,7 @@ proc popWeather*(city: string): JsonNode =
   ## Get weather information of a city as json
   let url = fmt"https://api.popcat.xyz/weather?q={city}"
   return getjson parseUri url
- 
+
 proc popWWW*(image1, image2: Uri): string =
   ## Generate a who-would-win meme with the images provided
   fmt"https://api.popcat.xyz/whowouldwin?image2={image2}&image1={image1}"
@@ -93,7 +93,7 @@ proc popGun*(image: Uri): string =
 
 proc catify*(text: string): string =
   ## Conbvert your text into lal-cat speak
-  let url = fmt"https://api.popcat.xyz/lulcat?text={text}"  
+  let url = fmt"https://api.popcat.xyz/lulcat?text={text}"
   return getjson(parseUri(url))["text"].getStr()
 
 

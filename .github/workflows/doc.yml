@@ -31,11 +31,10 @@ jobs:
       with:
         version: devel
     - run: nimble install -d -y && nimble lint && nimble gendoc
-    - uses: EndBug/add-and-commit@v9
+    - uses: Andro999b/push@v1.3
       with:
-        author_name: nimpretty
-        author_email: mail@example.com
-        message: 'chore: generate documentation; lint code'
+        github_token: ${{ secrets.GITHUB_TOKEN }}
+        message: 'chore: lint; generate documentation'
 
   # Single deploy job since we're just deploying
   deploy:

@@ -16,3 +16,10 @@ test "IMDB":
   check popIMDB("iron man") == getJson(parseUri"https://api.popcat.xyz/imdb?q=iron+man") 
 test "Steam":
   check popSteam("minecraft") == getJson(parseUri"https://api.popcat.xyz/steam?q=minecraft") 
+test "GitHub":
+  check popGithub("Infinitybeond1") == getJson(parseUri"https://api.popcat.xyz/github/Infinitybeond1") 
+test "Weather":
+  check popWeather("Toronto") == getJson(parseUri"https://api.popcat.xyz/weather?q=toronto")
+test "Catify":
+  check catify("Hello") == getjson(parseUri("https://api.popcat.xyz/lulcat?text=hello"))["text"].getStr()
+

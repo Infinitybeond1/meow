@@ -54,6 +54,47 @@ proc popPooh*(text1, text2: string): string =
   # Return the url of e generated pooh meme
   fmt"https://api.popcat.xyz/pooh?text1={text1}&text2={text2}"
 
+proc popShowerThought*(): JsonNode =
+  ## Returns a random shower thought as json
+  let url = "https://api.popcat.xyz/showerthoughts"
+  return getjson(parseuri(url))
+
+proc popQuote*(): JsonNode =
+  ## Generate a random quote (as json)
+  let url = "https://api.popcat.xyz/quote"
+  return getjson(parseuri(url))
+
+proc popWanted*(image: Uri): string =
+  ## Add a wanted overlay to your image, return the image url
+  return fmt"https://api.popcat.xyz/wanted?image={$image}"
+
+proc popReddit*(subName: string): JsonNode =
+  ##  Get information about a subreddit as json
+  let url = fmt"https://api.popcat.xyz/subreddit/{subName}"
+  return getjson parseUri url
+
+proc popGithub*(username: string): JsonNode =
+  ## Get inormation about a github profile as json
+  let url = fmt"https://api.popcat.xyz/github/{username}"
+  return getjson parseUri url
+
+proc popWeather*(city: string): JsonNode =
+  ## Get weather information of a city as json
+  let url = fmt"https://api.popcat.xyz/weather?q={city}"
+  return getjson parseUri url
+ 
+proc popWWW*(image1, image2: Uri): string =
+  ## Generate a who-would-win meme with the images provided
+  fmt"https://api.popcat.xyz/whowouldwin?image2={image2}&image1={image1}"
+
+proc popGun*(image: Uri): string =
+  ## Add a gun overlay to your image
+  fmt"https://api.popcat.xyz/gun?image={image}"
+
+proc catify*(text: string): string =
+  ## Conbvert your text into lal-cat speak
+  let url = fmt"https://api.popcat.xyz/lulcat?text={text}"  
+  return getjson(parseUri(url))["text"].getStr()
 
 
 
